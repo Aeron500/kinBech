@@ -3,6 +3,8 @@ import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import Link from "next/link";
 
+
+
 const SignupSchema = Yup.object().shape({
   FullName: Yup.string()
     .min(2, "Too Short!")
@@ -38,8 +40,9 @@ const res=await fetch("http://127.0.0.1:4000/register",requestOptions)
 
 }
 return(
-  <div>
-    <h1>Signup</h1>
+  <div className="register-container">
+  <div className="form-container">
+    <p className="form-title">Signup</p>
     <Formik
       initialValues={{
         FullName: "",
@@ -84,12 +87,16 @@ return(
           {errors.ConfirmPassword && touched.ConfirmPassword ? (
             <div>{errors.ConfirmPassword}</div>
           ) : null}<br/>
-          <button type="submit">Submit</button>
+          <button type="submit" className="register-btn">Submit</button>
           <br/>
-          Alreadyhave an account? <Link href="/">Login</Link> instead
+          Already have an account? <Link href="/">Login</Link> instead
         </Form>
+
+        
       )}
+      
     </Formik>
+    </div>
   </div>
 );}
 export default Register;
