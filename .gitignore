@@ -4,7 +4,9 @@ logs
 npm-debug.log*
 ./server/node_modules
 ./client/node_modules
+./client/.next
 # Runtime data
+**/.env
 pids
 *.pid
 *.seed

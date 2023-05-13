@@ -2,7 +2,7 @@ import React from "react";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import Link from "next/link";
-
+import {message} from "antd";
 
 
 const SignupSchema = Yup.object().shape({
@@ -29,14 +29,26 @@ const SignupSchema = Yup.object().shape({
 
 
 const Register = () =>{
+  const [messageApi, contextHolder] = message.useMessage();
 const registerUser=async(values)=>{
   const requestOptions = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify( values)
 };
-const res=await fetch("http://127.0.0.1:4000/register",requestOptions)
-
+try {
+  const res = await fetch('http://localhost:4000/register', requestOptions)
+  console.log(res)
+  const data = await res.json()
+  console.log(data)
+  if (res&&data.success) {
+    message.success(data.msg);
+  } else {
+    message.error(data.msg);
+  }
+} catch (err) {
+  messageApi.warning(data.msg);
+}
 
 }
 return(
@@ -62,30 +74,30 @@ return(
         <Form>
           <Field name="FullName" placeholder="FullName" />
           {errors.FullName && touched.FullName ? (
-            <div>{errors.FullName}</div>
+            <div className="error-msg">{errors.FullName}</div>
           ) : null}
           <br />
           <Field name="phoneNumber" placeholder="phoneNumber" />
           {errors.phoneNumber && touched.phoneNumber ? (
-            <div>{errors.phoneNumber}</div>
+            <div className="error-msg">{errors.phoneNumber}</div>
           ) : null}
           <br />
           <Field name="address" placeholder="address" />
           {errors.address && touched.address ? (
-            <div>{errors.address}</div>
+            <div className="error-msg">{errors.address}</div>
           ) : null}
           <br />
           <Field name="email" type="email" placeholder="E-mail" />
-          {errors.email && touched.email ? <div>{errors.email}</div> : null}
+          {errors.email && touched.email ? <div className="error-msg">{errors.email}</div> : null}
           <br />
           <Field name="password" placeholder="password" />
           {errors.password && touched.password ? (
-            <div>{errors.password}</div>
+            <div className="error-msg">{errors.password}</div>
           ) : null}
           <br />
           <Field name="ConfirmPassword" placeholder="ConfirmPassword" />
           {errors.ConfirmPassword && touched.ConfirmPassword ? (
-            <div>{errors.ConfirmPassword}</div>
+            <div className="error-msg">{errors.ConfirmPassword}</div>
           ) : null}<br/>
           <button type="submit" className="register-btn">Submit</button>
           <br/>
