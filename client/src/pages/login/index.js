@@ -9,8 +9,11 @@ import * as Yup from "yup";
 import { InputNumber } from "antd";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { setToken } from "../redux/reducerSlice/userSlice";
-import { useRouter } from "next/router";
+import { setToken, setRole } from "../redux/reducerSlice/userSlice";
+import Link from "next/link";
+import Footer from "@/components/footer";
+import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
+// import { useRouter } from "next/router";
 // import logo from  '../../public/buysell.jpg'
 const initialValues = {
   phoneNumber: "",
@@ -32,15 +35,19 @@ const SignupSchema = Yup.object().shape({
 });
 const Login = () => {
   const [messageApi, contextHolder] = message.useMessage();
-  const router = useRouter();
+  // const router = useRouter();
   const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
+  const [open, setOpen] = useState(false);
+
   const dispatch = useDispatch();
 
   const { token } = useSelector((state) => state);
 
   console.log(token);
-
+  const toggle = () => {
+    setOpen(!open);
+  };
   const handleLogin = async (values) => {
     const requestOptions = {
       method: "POST",
@@ -63,12 +70,13 @@ const Login = () => {
       messageApi.warning(data.message);
     }
   };
-  const handleRegister = () => {
-    router.push("/register");
-  };
+  // const handleRegister = () => {
+  //   router.push("/register");
+  // };
 
   return (
-    <>
+    
+    <><div className="center">
       <header className="nav">
         <div className="title">
           {" "}
@@ -77,12 +85,20 @@ const Login = () => {
         <div className="logo">
           <img
             src="https://e7.pngegg.com/pngimages/696/531/png-clipart-logo-brand-buy-and-sell-text-logo.png"
-            className="logo"
-          />
+            className="logo" />
         </div>
       </header>
       <br />
-
+      <div>
+        <div>
+          <p className="form-title">LOGIN</p>
+        </div>
+        <div className="text-field">
+          <p>
+            New?<Link href={"/register"}> Register</Link> here.
+          </p>
+        </div>
+      </div>
       <div>
         <Formik
           initialValues={{
@@ -94,29 +110,51 @@ const Login = () => {
         >
           {({ errors, touched }) => (
             <Form className="login">
-              <p className="form-title">SignIn</p>
-              <Field name="phoneNumber" placeholder="phone number" />
+              <label for="input-id" className="input-label">
+                <span>phone number*</span>
+              </label>
+              <Field
+                name="phoneNumber"
+                placeholder="Please enter your phone number"
+                className="input-field" />
               {errors.phoneNumber && touched.phoneNumber ? (
                 <div className="error-msg">{errors.phoneNumber}</div>
               ) : null}
-              <Field name="password" placeholder="password" />
+              <label for="input-id" className="input-label">
+                password*
+              </label>
+
+              <Field
+                name="password"
+                type={open == false ? "password" : "text"}
+                placeholder="Please enter your password"
+                className="input-field" />
+              <span className="showpass">
+                {open == false ? (
+                  <AiFillEye onClick={toggle} />
+                ) : (
+                  <AiFillEyeInvisible onClick={toggle} />
+                )}
+              </span>
               {errors.password && touched.password ? (
                 <div className="error-msg">{errors.password}</div>
               ) : null}
+
               <br />
               {contextHolder}
               <button type="submit" className="login-btn">
                 Login
               </button>
-              <br />
-              Don't have an account yet?
-              <button type="submit" onClick={handleRegister}>Sign Up</button>instead
+
+              {/* <button type="button" onClick={handleRegister}>Sign Up</button>instead */}
             </Form>
           )}
+
         </Formik>
+
       </div>
-   
-    </>
+    </div><div><Footer /></div></>
+    
   );
 };
 export default Login;

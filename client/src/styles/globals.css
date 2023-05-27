@@ -1,5 +1,5 @@
 :root{
-    --bg-primary-color : #1e90ff;
+    --bg-primary-color : #221eff;
 }
 
 *{
@@ -9,8 +9,8 @@
 
 }
 .nav{
-    background-color: green;
-    color: darkturquoise;
+    background-color: #678e67;
+   
     padding: 20px;
     display: flex;
     justify-content: space-between;
@@ -46,33 +46,40 @@
   flex-direction: column;
     text-align: center;
     height: 100vh;
+    background-color: aquamarine;
     
 }
 .form-title{
-    text-align:center;
+    text-align:left;
     font-size: 25px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
- 
+    padding-left: 20%;
+    margin-bottom: 5%;
     
 }
 input{
-    margin: 8px 0;
-    padding: 6px 8px;
+ 
+margin: 8px 0px;
+padding: 5px 100px;
+margin-top: 1px;
+width: 71%;
 }
-
 .form-container{
     background-color: #f2f2f2;
-    padding: 24px;
+    padding: 40px;
     border-style: double;
 }
 
 .register-btn{
-    margin : 12px 0;
-    background-color: var(--bg-primary-color);
- 
-  
+    margin: 12px 0;
+    background-color: #5451d0;
     padding: 9px 12px;
     border: none;
+    border-radius: 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.register-btn:hover{
+    background-color: #312fd3;
 }
 .logo{
    
@@ -82,31 +89,134 @@ input{
   
     
 }
-.login{
+.center{
+    position: absolute;
+    border-radius: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
     width: 400px;
-    margin: 0 auto;
+    border: #3d3d3d;
+    
+    background-color: #b7d9b8;
+}
+.login{
+    padding: 0 40px;
+    box-sizing: border-box;
+    
+    background-color: #b7d9b8;
+
+    /* width: 400px; */
+    /* margin: 0 auto;
     border-style: solid;
     background-color: #b7d9b8;
-    padding: 20px;
+    /* padding: 20px; */
   
-    padding: 10px 20px;
-    display: flex;
+    /* padding: 10px 20px; */
+    /* display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     text-align: center;
-    height: 60vh;
+    height: 60vh; */
+    /* width: 75vh; */
+    /* margin-top: 20px; */ 
 
     
   }
   .login-btn{
+    width: 100%;
     margin : 12px 0;
-    background-color: var(--bg-primary-color);
- 
-  
+    
+    background-color: #3b3a86;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-radius: 5px;
     padding: 9px 12px;
     border: none;
+  }
+  .login-btn:hover {
+    background-color: #385475;
   }
 .error-msg{
     color:red
 }
+.input-field{
+    left: 5%;
+    box-sizing: border-box;
+    width: 92%;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    height: 40px;
+    line-height: 38px \0;
+    padding: 0 5px;
+    margin-bottom: 30px;
+    outline: none;
+    position: relative;
+}
+
+.input-label{
+    padding-left: 5%;
+    font-size: 17px;
+    font-weight: 600;
+    color: #3d3d3d;
+    display: inline-block;
+    width: 100%;
+    text-align: left;
+    font-family: sans-serif;
+}
+.showpass{
+    top: 5px;
+    left:-5px;
+    position:  relative;
+}
+.text-field{
+    text-align: right;
+    margin: 6px;
+    padding: 10px 1px 20px;
+    font-size: 14px;
+    font-family: serif;
+    color: #734d4d;
+}
+.nav-admin{
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin:2px
+}
+p{
+    margin-top:5px;
+    margin-bottom:5px
+}
+.input-admin{
+    display: flex;
+    width: 65%;
+    margin-left: 18%;
+}
+.admin-logout-btn{
+    margin: 14px -55% 0 100px;
+    background-color: #d3393b;
+    padding: 9px 12px;
+    border: double;
+    border-radius: 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.admin-logout-btn:hover{
+    background-color: #8a3132;
+}
+.form-admin{
+    background-color: #f2f2f2;
+    padding: 5px;
+    border-style: double;
+}
+.product{
+    font-family: fantasy;
+}
+.footer{
+    margin-top: 1rem;
+    padding: 10px;
+    background-color: rgb(216 213 203);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }

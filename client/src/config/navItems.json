@@ -1,0 +1,16 @@
+{
+    "admin": {
+        "navItem": [
+            {"label": "Home", "link": "/"},
+            {"label": "Profile", "link": "/profile"},
+            {"label": "Product Management", "link": "/product"}
+             ]
+    },
+    "user": {
+        "navItem": [
+        {"label": "Home", "link": "/"},
+        {"label": "Profile", "link": "/profile"}
+       
+        ]
+    }
+}
