@@ -47,7 +47,7 @@ router.post("/register", upload,async (req, res) => {
         //generete the token for this matched user and send the token as reponse
         const token = jwt.sign({ phoneNumber: req.body.phoneNumber }, process.env.SECRET_KEY);
         console.log(token)
-        res.json({ message: "login succcess", success: true, token: token })
+        res.json({ message: "login succcess", success: true, token: token,role:data.role,id:data._id })
       } else {
         res.json({ message: "login failed", success: false })
       }

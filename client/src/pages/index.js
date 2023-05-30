@@ -12,6 +12,7 @@ import { useSelector } from "react-redux";
 import Login from "./login";
 import UserDashboard from "./user";
 import AdminDashboard from "./admin";
+import CustomDrawer from "@/components/drawer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,10 +20,10 @@ const Main = () => {
   const { token, role } = useSelector((state) => state.user);
   const Dashboard = () => {
     switch (role) {
-      case "user":
-        return <UserDashboard />;
-      case "admin":
-        return <AdminDashboard />;
+      case 'user':
+        return <UserDashboard />
+      case 'admin':
+        return <AdminDashboard />
     }
     
   };
@@ -35,9 +36,10 @@ const Main = () => {
     <div>
    
  
-       {/* {role ? <Navbar /> : null} */}
+       {role ? <CustomDrawer/> : null}
       
-      {token ? <AdminDashboard /> : <Auth />}
+      
+      {token ?<Dashboard/> : <Auth />}
     </div>
   );
 };

@@ -8,7 +8,7 @@ const fs =require('fs')
 const Products = require('../model/products')
 
 router.post('/products',upload, async (req, res) => {
-    req.body.avatarName= req?.file?.filename 
+    req.body.productIcon= req?.file?.filename 
         const data = await Products.create(req.body)
         if (data) {
           res.json({
