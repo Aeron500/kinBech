@@ -42,7 +42,7 @@ const Login = () => {
 
   const dispatch = useDispatch();
 
-  const { token } = useSelector((state) => state);
+  const { token } = useSelector((state) => state.user);
 
   console.log(token);
   const toggle = () => {
@@ -63,6 +63,7 @@ const Login = () => {
       if (data.success) {
         message.success("login successful");
         dispatch(setToken(data.token));
+        dispatch(setRole(data.role));
       } else {
         message.error("login failed, try again");
       }
@@ -131,9 +132,9 @@ const Login = () => {
                 className="input-field" />
               <span className="showpass">
                 {open == false ? (
-                  <AiFillEye onClick={toggle} />
-                ) : (
                   <AiFillEyeInvisible onClick={toggle} />
+                ) : (
+                  <AiFillEye onClick={toggle} />
                 )}
               </span>
               {errors.password && touched.password ? (

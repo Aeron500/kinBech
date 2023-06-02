@@ -3,7 +3,7 @@ const productSchema = new mongoose.Schema({
     productName: String,
     productPrice: String,
     productDescription: String,
-    productIcon: {type: String, default: 'defaultProduct.png'}
+    productImage: {type: String, default: 'defaultProduct.png'}
 
    
    

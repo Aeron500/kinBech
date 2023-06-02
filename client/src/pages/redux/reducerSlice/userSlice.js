@@ -15,8 +15,7 @@ export const userSlice = createSlice({
     },
     setRole: (state, action) => {
       state.role= action.payload 
-    
-      },
+     },
     logout:  (state, action) => {
       return {
         ...initialState

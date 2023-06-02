@@ -6,40 +6,42 @@ import styles from "@/styles/Home.module.css";
 import Link from "next/link";
 import { Button, Checkbox, Form, Input } from "antd";
 import { InputNumber } from "antd";
-
 import Navbar from "@/components/nav";
 import { useSelector } from "react-redux";
 import Login from "./login";
 import UserDashboard from "./user";
 import AdminDashboard from "./admin";
 import CustomDrawer from "@/components/drawer";
+import ProductList from "./products/productList";
 
 const inter = Inter({ subsets: ["latin"] });
 
 const Main = () => {
-  const { token, role } = useSelector((state) => state.user);
+  const { token, role } = useSelector(state => state.user);
+
+
   const Dashboard = () => {
     switch (role) {
       case 'user':
-        return <UserDashboard />
+        return <UserDashboard/>
       case 'admin':
-        return <AdminDashboard />
+        return <AdminDashboard/>
     }
     
   };
-  const Auth = () => {
-    return <Login />;
-  };
+  // const Auth = () => {
+  //   return <Login/>;
+  // };
   
   return (
    
     <div>
    
  
-       {role ? <CustomDrawer/> : null}
+       {/* {role ? <CustomDrawer/> : null} */}
       
       
-      {token ?<Dashboard/> : <Auth />}
+      {token ?<Dashboard/> : <Login/>}
     </div>
   );
 };

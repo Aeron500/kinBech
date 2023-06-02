@@ -5,6 +5,8 @@ import Link from "next/link";
 import { message } from "antd";
 import { useState } from "react";
 import { setRole } from "../redux/reducerSlice/userSlice";
+import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
+
 
 const SignupSchema = Yup.object().shape({
   FullName: Yup.string()
@@ -34,6 +36,8 @@ const SignupSchema = Yup.object().shape({
 const Register = () => {
   const [messageApi, contextHolder] = message.useMessage();
   const [file, setFile] = useState(null);
+  const [open, setOpen] = useState(false);
+
   const registerUser = async (values) => {
     //   const requestOptions = {
     //     method: 'POST',
@@ -66,10 +70,19 @@ const Register = () => {
     };
     try {
       const res = await fetch("http://localhost:4000/register", requestOptions);
+      const data = await res.json();
+
+      if (res && data.success) {
+        message.success(data.msg);
+      } else {
+        message.error(data.msg);
+      }
     } catch (err) {
-      // error tracking tools
-      console.log(err);
+      messageApi.warning(data.msg);
     }
+  };
+  const toggle = () => {
+    setOpen(!open);
   };
   const handleFileSave = (e) => {
     console.log(e.target.files);
@@ -117,19 +130,31 @@ const Register = () => {
                 <div className="error-msg">{errors.email}</div>
               ) : null}
               <br />
-              <Field name="password" placeholder="password" />
+              <Field name="password"   type={open == false ? "password" : "text"} placeholder="password" />
+              <span className="showpass-register">
+                {open == false ? (
+                  <AiFillEyeInvisible onClick={toggle} />
+                ) : (
+                  <AiFillEye onClick={toggle} />
+                )}
+              </span>
               {errors.password && touched.password ? (
                 <div className="error-msg">{errors.password}</div>
               ) : null}
               <br />
-              <Field name="ConfirmPassword" placeholder="ConfirmPassword" />
+              <Field name="ConfirmPassword"  type={open == false ? "password" : "text"} placeholder="ConfirmPassword" />
+              <span className="showpass-register">
+                {open == false ? (
+                  <AiFillEyeInvisible onClick={toggle} />
+                ) : (
+                  <AiFillEye onClick={toggle} />
+                )}
+              </span>
               {errors.ConfirmPassword && touched.ConfirmPassword ? (
                 <div className="error-msg">{errors.ConfirmPassword}</div>
               ) : null}
               <br />
-        
               <Field name="role" placeholder="role" />
-
               {errors.role && touched.role ? (
                 <div className="error-msg">{errors.role}</div>
               ) : null}

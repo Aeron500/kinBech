@@ -44,7 +44,7 @@
     justify-content: center;
     align-items: center;
   flex-direction: column;
-    text-align: center;
+    text-align: start;
     height: 100vh;
     background-color: aquamarine;
     
@@ -63,11 +63,13 @@ margin: 8px 0px;
 padding: 5px 100px;
 margin-top: 1px;
 width: 71%;
+border: revert;
 }
 .form-container{
     background-color: #f2f2f2;
     padding: 40px;
     border-style: double;
+    border-radius: 25px;
 }
 
 .register-btn{
@@ -138,7 +140,8 @@ width: 71%;
     background-color: #385475;
   }
 .error-msg{
-    color:red
+    color:red;
+    text-align: center;
 }
 .input-field{
     left: 5%;
@@ -193,7 +196,7 @@ p{
     margin-left: 18%;
 }
 .admin-logout-btn{
-    margin: 14px -55% 0 100px;
+    margin: 5px -55% 0 71%;
     background-color: #d3393b;
     padding: 9px 12px;
     border: double;
@@ -210,6 +213,7 @@ p{
 }
 .product{
     font-family: fantasy;
+    text-align: center;
 }
 .footer{
     margin-top: 1rem;
@@ -220,3 +224,9 @@ p{
     left: 0;
     width: 100%;
   }
+  .showpass-register{
+    top: 5px;
+    left:-25px;
+    position:  relative;
+}
+  
