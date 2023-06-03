@@ -8,6 +8,7 @@ import { persistReducer, persistStore } from 'redux-persist';
 const persistConfig = {
   key: 'root',
   storage,
+  whitelist: ['user']
 }
 
 const reducer = combineReducers({user: userReducer})

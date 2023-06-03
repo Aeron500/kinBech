@@ -20,12 +20,11 @@ router.post('/products',upload, async (req, res) => {
       }
     
   )
-  router.get('/productsList',async (req, res) => {
+  router.get('/products',async (req, res) => {
         const productList = await Products.find()
         if (productList.length>0) {
           res.json({
             listOfProducts:productList
-  
           })
         }
         else{

@@ -12,7 +12,7 @@ import Login from "./login";
 import UserDashboard from "./user";
 import AdminDashboard from "./admin";
 import CustomDrawer from "@/components/drawer";
-import ProductList from "./products/productList";
+import ProductList from "./products/productsList";
 
 const inter = Inter({ subsets: ["latin"] });
 
