@@ -19,9 +19,9 @@ const ProductList = () => {
   }, []);
   
   return (
-    <>
-      <h1>Product List</h1>
-      <ul>
+    <div className="main-card">
+      <h1 style={{textAlign:'center'}}>Product List</h1>
+      
         {/* { listOfProducts.map((item) => (
          
         <><li key={item._id}></li>
@@ -32,8 +32,8 @@ const ProductList = () => {
       {listOfProducts.length> 0 ? listOfProducts.map((item)=>{
             return( <Card item={item}/>)
           }) : <Skeleton />}
-      </ul>
-    </>
+      
+    </div>
   );
 };
 

@@ -1,14 +1,17 @@
-import styles from '@/styles/Home.module.css'
 
 const productCard = (props) => {
- return(
-    <div className='card'>
-    <ul>
-               {props.item.productName}
-               <br/>
-               {props.item.productPrice}
-              {/* { <img src={`http://localhost:4000/productImage/+{props.item.productImage}`}/>} */}
-            </ul>
-              </div>
-)}
+  return (
+ 
+    <div className="card">
+      <img src={`http://localhost:4000/uploads/productImage/${props.item.productImage}`}  width="220" height="120" />
+
+      <div className="product-name">{props.item.productName}</div>
+
+      <div className="product-price">{props.item.productPrice}</div>
+    </div>
+    
+   
+   
+  );
+};
 export default productCard;

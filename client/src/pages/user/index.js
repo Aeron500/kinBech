@@ -15,7 +15,7 @@ const UserDashboard = () => {
   };
   return (
     <>
-      <CustomDrawer />
+   
       <ProductList/>
    <button onClick={handleLogout}><Link href={'/'}>Logout</Link></button>
     </>
