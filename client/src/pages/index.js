@@ -14,6 +14,7 @@ import AdminDashboard from "./admin";
 import CustomDrawer from "@/components/drawer";
 import ProductList from "./products/productsList";
 
+
 const inter = Inter({ subsets: ["latin"] });
 
 const Main = () => {
@@ -39,9 +40,9 @@ const Main = () => {
    
  
        {/* {role ? <CustomDrawer/> : null} */}
+   
       
-      
-      {token ?<Dashboard/> : <Login/>}
+      {token ?<Dashboard/> :<Login/>}
     </div>
   );
 };
