@@ -36,6 +36,22 @@ router.get("/products", async (req, res) => {
 }
 });
 
+router.get("/products/:id", async (req, res) => {
+  try{
+ const productDetailsList = await Products.findById(req.params.id);
+ if(!productDetailsList){
+  return res.send("No product details to show")
+ }
+  res.json({
+    productDetailList:productDetailsList
+  })
+ 
+  }
+  catch(e)
+  {
+    console.error(e)
+  }
+})
 router.get("/productImage/:id", async (req, res) => {
   const productData = await Products.findById(req.params.id);
   const productPhoto = path.join(
@@ -48,6 +64,7 @@ router.get("/productImage/:id", async (req, res) => {
     "../../uploads/productImage",
     productData.productImage
   );
+  console.log(productPhoto)
   if (fs.existsSync(productPhoto)) {
     res.sendFile(productPhoto);
   } else {
