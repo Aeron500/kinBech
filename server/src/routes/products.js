@@ -41,11 +41,10 @@ router.get("/products/:id", async (req, res) => {
  const productDetailsList = await Products.findById(req.params.id);
  if(!productDetailsList){
   return res.send("No product details to show")
- }
+ }else{
   res.json({
     productDetailList:productDetailsList
-  })
- 
+  })}
   }
   catch(e)
   {
@@ -53,6 +52,7 @@ router.get("/products/:id", async (req, res) => {
   }
 })
 router.get("/productImage/:id", async (req, res) => {
+  try{
   const productData = await Products.findById(req.params.id);
   const productPhoto = path.join(
     __dirname,
@@ -64,11 +64,14 @@ router.get("/productImage/:id", async (req, res) => {
     "../../uploads/productImage",
     productData.productImage
   );
-  console.log(productPhoto)
+  // console.log(productPhoto)
   if (fs.existsSync(productPhoto)) {
     res.sendFile(productPhoto);
   } else {
     res.sendFile(defaultImage);
   }
+}catch(err){
+  console.error(err)
+}
 });
 module.exports = router;

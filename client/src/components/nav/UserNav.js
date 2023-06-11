@@ -15,7 +15,7 @@ const UserNav = () => {
         <div className="social-media">
           <ul className="social-media-desktop">
           <li>
-            <Link href={'/'}>Sign in</Link>
+            <Link href={'/login'}>Sign in</Link>
            
           </li>
           <li>

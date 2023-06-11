@@ -1,6 +1,7 @@
 import React,{ useState, useEffect } from "react";
 import { Skeleton } from 'antd';
 import Card from '../../components/Card'
+
 const ProductList = () => {
   const [listOfProducts, setlistOfProducts] = useState([]);
   const getProductLists = async () => {

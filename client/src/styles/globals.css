@@ -138,10 +138,15 @@ border: revert;
     color: #734d4d;
 }
 .nav-admin{
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    margin:2px
+  padding: 20px;
+  margin: 2px;
+  margin-top: -12%;
+}
+.nav-admin h4{
+  color: #2b2a7f;
+  font-size: smaller;
+  font-family: sans-serif;
+  text-align: -webkit-center;
 }
 p{
     margin-top:5px;

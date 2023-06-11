@@ -13,7 +13,7 @@ import { setToken, setRole } from "../redux/reducerSlice/userSlice";
 import Link from "next/link";
 import Footer from "@/components/footer";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
-// import { useRouter } from "next/router";
+import { useRouter } from "next/router";
 // import logo from  '../../public/buysell.jpg'
 const initialValues = {
   phoneNumber: "",
@@ -35,7 +35,7 @@ const SignupSchema = Yup.object().shape({
 });
 const Login = () => {
   const [messageApi, contextHolder] = message.useMessage();
-  // const router = useRouter();
+  const router = useRouter();
   const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
   const [open, setOpen] = useState(false);
@@ -64,6 +64,7 @@ const Login = () => {
         message.success("login successful");
         dispatch(setToken(data.token));
         dispatch(setRole(data.role));
+       router.push('/')
       } else {
         message.error("login failed, try again");
       }
