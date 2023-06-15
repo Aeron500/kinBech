@@ -202,7 +202,7 @@ p{
     padding: 3rem;
     margin: 5px;
     border-radius: 5px;
-    background-color: #323436;
+    background-color:#82868a;
     display: inline-table;
 }
 .product-name{
@@ -211,13 +211,13 @@ p{
     font-size: 20px;
     height: 36px;
     line-height: 18px;
-    color: #dcb5b5;
+    color: #271c1c;
     -webkit-box-orient: vertical;
 }
 .product-price{
   margin-bottom: 4px;
   font-size: 18px;
-  color: #f85606;
+  color: #883a13;
   letter-spacing: -.56px;
   line-height: 22px;
   height: 22px;

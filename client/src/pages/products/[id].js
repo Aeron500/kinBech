@@ -19,11 +19,12 @@ import { useRouter } from 'next/router';
     
        <div className='card'>
      
-       <p>{product.productName}</p>
+       <h1>{product.productName}</h1>
        <img src={`http://localhost:4000/productImage/${product._id}`} width="220" height="120" />
        <p>{product.productPrice}</p>
+     
    </div>
-       
+   
   
   );
 }

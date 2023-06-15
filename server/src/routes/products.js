@@ -23,7 +23,7 @@ router.post("/products", upload, async (req, res) => {
 });
 router.get("/products", async (req, res) => {
   try{
-  const productList = await Products.find();
+  const productList = await Products.find().skip((req.query.page-1)*6).limit(6);
   if (productList.length > 0) {
     res.json({
       listOfProducts: productList,
@@ -36,20 +36,20 @@ router.get("/products", async (req, res) => {
 }
 });
 
-router.get("/admin-products", async (req, res) => {
-  try{
-  const productList = await Products.find();
-  if (productList.length > 0) {
-    res.json({
-      listOfProducts: productList,
-    });
-  } else {
-    res.json({ response: "No products found" });
-  }
-}catch(e){
-  console.error(e)
-}
-});
+// router.get("/admin-products", async (req, res) => {
+//   try{
+//   const productList = await Products.find();
+//   if (productList.length > 0) {
+//     res.json({
+//       listOfProducts: productList,
+//     });
+//   } else {
+//     res.json({ response: "No products found" });
+//   }
+// }catch(e){
+//   console.error(e)
+// }
+// });
 
 router.get("/products/:id", async (req, res) => {
   try{
@@ -67,11 +67,11 @@ router.get("/products/:id", async (req, res) => {
   }
 })
 
-router.delete("/products/", async (req, res) => {
+router.delete("/products", async (req, res) => {
   try{
  const productDetailsList = await Products.findByIdAndDelete(req.body.id);
  if(!productDetailsList){
-  return res.send("No productsto delete")
+  return res.send("No products to delete")
  }else{
   res.json({
     productDetailList:productDetailsList
