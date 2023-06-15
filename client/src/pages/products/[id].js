@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 
   useEffect(()=>{
     fetchProductDetails()
-  }, [])
+  }, [router.query.id])
   const fetchProductDetails =async() => {
     const res = await fetch(`http://localhost:4000/products/`+router.query.id);
     const data = await res.json();

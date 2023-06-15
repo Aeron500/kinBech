@@ -7,7 +7,6 @@ import { useState } from "react";
 import { setRole, setToken } from "../redux/reducerSlice/userSlice";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
-
 import AdminNav from "@/components/nav/adminNav";
 const productRegister = Yup.object().shape({
   productName: Yup.string()
@@ -76,7 +75,6 @@ const Admin = () => {
   return (
     <div className="register-container">
       <AdminNav />
-
       <div className="form-admin">
         <p className="form-title">Product Details</p>
         <Formik

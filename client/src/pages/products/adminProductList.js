@@ -1,12 +1,12 @@
 import React,{ useState, useEffect } from "react";
 import { Skeleton } from 'antd';
-import Card from '../../components/Card'
 
-const ProductList = () => {
+
+const AdminProduct = () => {
   const [listOfProducts, setlistOfProducts] = useState([]);
   const getProductLists = async () => {
     try{
-    const res = await fetch("http://127.0.0.1:4000/products/");
+    const res = await fetch("http://127.0.0.1:4000/admin-products/");
     const data = await res.json();
     if (data){
       setlistOfProducts(data.listOfProducts);
@@ -25,11 +25,11 @@ const ProductList = () => {
   return (
     <div className="main-card">
       <h1 style={{textAlign:'center'}}>Product List</h1>
-      {listOfProducts.length> 0 ? listOfProducts.map((item)=>{
-            return( <Card item={item} getProductLists={getProductLists}/>)
-          }) : <Skeleton />}
+      {listOfProducts.map((item)=>{
+            return( <li>{item.productName}</li>)
+          })}
       </div>
   );
 };
 
-export default ProductList;
+export default AdminProduct;

@@ -36,11 +36,42 @@ router.get("/products", async (req, res) => {
 }
 });
 
+router.get("/admin-products", async (req, res) => {
+  try{
+  const productList = await Products.find();
+  if (productList.length > 0) {
+    res.json({
+      listOfProducts: productList,
+    });
+  } else {
+    res.json({ response: "No products found" });
+  }
+}catch(e){
+  console.error(e)
+}
+});
+
 router.get("/products/:id", async (req, res) => {
   try{
  const productDetailsList = await Products.findById(req.params.id);
  if(!productDetailsList){
   return res.send("No product details to show")
+ }else{
+  res.json({
+    productDetailList:productDetailsList
+  })}
+  }
+  catch(e)
+  {
+    console.error(e)
+  }
+})
+
+router.delete("/products/", async (req, res) => {
+  try{
+ const productDetailsList = await Products.findByIdAndDelete(req.body.id);
+ if(!productDetailsList){
+  return res.send("No productsto delete")
  }else{
   res.json({
     productDetailList:productDetailsList
