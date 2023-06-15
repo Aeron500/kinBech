@@ -15,6 +15,8 @@ const productRegister = Yup.object().shape({
     .required("Required"),
   productDescription: Yup.string()
     .required("Required"),
+  productCategory: Yup.string()
+    .required("Required"),
 });
 
 const Admin = () => {
@@ -98,7 +100,13 @@ const Admin = () => {
               {errors.productName && touched.productName ? (
                 <div className="error-msg">{errors.productName}</div>
               ) : null}
-
+              <p for="productCategory" className="product">
+                <span>Product Category:</span>
+              </p>
+              <Field name="productCategory" className="input-admin" />
+              {errors.productCategory && touched.productCategory ? (
+                <div className="error-msg">{errors.productCategory}</div>
+              ) : null}
               <p for="productPrice" className="product">
                 <span>Product price:</span>
               </p>

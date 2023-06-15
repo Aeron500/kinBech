@@ -196,13 +196,13 @@ p{
     width: 100%;
 }
 .card{
-    box-shadow: 0 20px 46px 0 #0c0b0b;
+   box-shadow: 0 20px 46px 0 #0c0b0b;
     width: 30%;
     text-align: center;
     padding: 3rem;
     margin: 5px;
-    border-radius: 25px;
-    background-color: #d9e2e9;;
+    border-radius: 5px;
+    background-color: #323436;
     display: inline-table;
 }
 .product-name{
@@ -211,8 +211,16 @@ p{
     font-size: 20px;
     height: 36px;
     line-height: 18px;
-    color: #212121;
+    color: #dcb5b5;
     -webkit-box-orient: vertical;
+}
+.product-price{
+  margin-bottom: 4px;
+  font-size: 18px;
+  color: #f85606;
+  letter-spacing: -.56px;
+  line-height: 22px;
+  height: 22px;
 }
 .user-main {
     width: 100%;
