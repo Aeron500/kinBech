@@ -1,7 +1,9 @@
 import { useRouter } from "next/router";
 import {AiFillDelete} from 'react-icons/ai'
+import { useSelector } from "react-redux";
 import axios from "axios";
 const productCard = (props) => {
+  const {role}=useSelector(state=>state.user)
   const router = useRouter();
   const handleClick = () => {
     router.push("/products/" + props.item._id);
@@ -30,7 +32,8 @@ const productCard = (props) => {
       <div className="product-name">{props.item.productName}</div>
 
       <div className="product-price">{props.item.productPrice}</div>
-    <AiFillDelete onClick={deleteProduct}/>
+    {role=="admin"?(<AiFillDelete onClick={deleteProduct}/>):null}
+   
 
     </div>
   );
