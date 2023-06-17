@@ -10,7 +10,7 @@ import Navbar from "@/components/nav";
 import { useSelector } from "react-redux";
 import Login from "./login";
 import UserDashboard from "./user";
-import AdminDashboard from "./admin";
+import AdminDashboard from "./admin/adminHomePage";
 import CustomDrawer from "@/components/drawer";
 import ProductList from "./products/productsList";
 
