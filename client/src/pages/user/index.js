@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import CustomDrawer from "@/components/drawer";
+import UserFooter from "@/components/footer/userFooter";
 import { setToken, setRole } from "../redux/reducerSlice/userSlice";
 
 import Link from "next/link";
@@ -11,14 +11,17 @@ const UserDashboard = () => {
   const router = useRouter();
 
   const handleLogout = () => {
-    dispatch(setToken(''))
-    // router.push("./login");  
+    dispatch(setToken(""));
+    // router.push("./login");
   };
   return (
     <>
-      <UserNav/>
-      <ProductList/>
-   <button onClick={handleLogout}><Link href={'/'}>Logout</Link></button>
+      <UserNav />
+     <ProductList />
+      <button onClick={handleLogout}>
+        <Link href={"/"}>Logout</Link>
+      </button>
+     <UserFooter />
     </>
   );
 };

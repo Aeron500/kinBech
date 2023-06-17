@@ -360,6 +360,32 @@ p{
 .AddCart:hover{
   background-color: #c15149;
 }
+.dashboard-footer {
+  background-color:  #464040;
+  padding: 20px;
+  text-align: center;
+}
+
+.dashboard-footer a {
+  color: #888888;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.dashboard-footer a:hover {
+  color: #333333;
+}
+
+.dashboard-footer .copyright {
+  font-size: 14px;
+  color: #888888;
+  margin-bottom: 10px;
+}
+.footer-scanner{
+  width:5%;
+  height:5%;
+}
+
 
 
   
