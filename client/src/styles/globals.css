@@ -364,6 +364,7 @@ p{
   background-color:  #464040;
   padding: 20px;
   text-align: center;
+  width:110%
 }
 
 .dashboard-footer a {
@@ -385,7 +386,27 @@ p{
   width:5%;
   height:5%;
 }
-
+.privacy{
+  width: 1174px;
+    font-family: Arial,Verdana,sans-serif!important;
+    line-height: normal!important;
+    padding: 8px;
+    margin-top: 150px;
+}
+.TermsOfService{
+  width: 1174px;
+  font-family: Arial,Verdana,sans-serif!important;
+  line-height: normal!important;
+  padding: 8px;
+  margin-top: 150px;
+}
+.help{
+  width: 1174px;
+  font-family: Arial,Verdana,sans-serif!important;
+  line-height: normal!important;
+  padding: 8px;
+  margin-top: 150px;
+}
 
 
   
