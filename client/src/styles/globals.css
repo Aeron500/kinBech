@@ -205,6 +205,14 @@ p{
     background-color:#82868a;
     display: inline-table;
 }
+.detail-card{
+  width: 50%;
+  text-align: center;
+  padding: 3rem;
+  margin: 5px;
+  background-color: #e9e3e3;
+  display: inline-table;
+}
 .product-name{
     position: relative;
     font-family:fantasy;
@@ -326,6 +334,24 @@ p{
     }
 }
 
+.details-card{
+  box-shadow: -7px 7px 8px 0 #a15656;
+  text-align: center;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.AddCart{
+  width:50%;
+  margin:20px 0;
+  background-color: #b5372d;
+  padding: 10px 10px;
+  margin-right: 90px;
+  border-radius: 5px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.AddCart:hover{
+  background-color: #c15149;
+}
 
   
 

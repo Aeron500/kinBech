@@ -25,7 +25,7 @@ const ProductList = () => {
   
   return (
     <div className="main-card">
-      <h1 style={{textAlign:'center'}}>Product List</h1>
+      
       {listOfProducts.length> 0 ? listOfProducts.map((item)=>{
             return( <Card item={item} getProductLists={getProductLists}/>)
           }) : <Skeleton />}
