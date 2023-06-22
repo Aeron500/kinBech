@@ -18,11 +18,10 @@ const productCard = (props) => {
   const res =await axios.delete('http://localhost:4000/products', { headers, data })
   if(res) props.getProductLists()
    }
-  
 
   return (
     <div className="card">
-      <img
+     <img
         src={`http://localhost:4000/productImage/${props.item._id}`}
         onClick={handleClick}
         width="220"

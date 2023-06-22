@@ -23,8 +23,9 @@ router.post("/products", upload, async (req, res) => {
 });
 router.get("/products", async (req, res) => {
   try{
+    const searchProduct=await Products.find({productName:req.query.searchKey})
   const productList = await Products.find().skip((req.query.page-1)*6).limit(6);
-  if (productList.length > 0) {
+  if (productList.length > 0 || searchProduct) {
     res.json({
       listOfProducts: productList,
     });
@@ -35,6 +36,7 @@ router.get("/products", async (req, res) => {
   console.error(e)
 }
 });
+
 
 // router.get("/admin-products", async (req, res) => {
 //   try{
@@ -54,6 +56,7 @@ router.get("/products", async (req, res) => {
 router.get("/products/:id", async (req, res) => {
   try{
  const productDetailsList = await Products.findById(req.params.id);
+ console.log(req.params)
  if(!productDetailsList){
   return res.send("No product details to show")
  }else{
