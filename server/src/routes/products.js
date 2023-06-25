@@ -23,9 +23,8 @@ router.post("/products", upload, async (req, res) => {
 });
 router.get("/products", async (req, res) => {
   try{
-    const searchProduct=await Products.find({productName:req.query.searchKey})
-  const productList = await Products.find().skip((req.query.page-1)*6).limit(6);
-  if (productList.length > 0 || searchProduct) {
+  const productList = await Products.find()
+  if (productList.length > 0 ) {
     res.json({
       listOfProducts: productList,
     });
