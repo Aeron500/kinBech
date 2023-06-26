@@ -5,9 +5,9 @@ import {AiOutlineSearch} from 'react-icons/ai'
 
 const ProductList = () => {
   const [listOfProducts, setlistOfProducts] = useState([]);
-  const getProductLists = async (value) => {
+  const getProductLists = async () => {
     try{
-    const res = await fetch("http://127.0.0.1:4000/products?searchKey="+value);
+    const res = await fetch("http://127.0.0.1:4000/products");
     const data = await res.json();
     if (data){
       setlistOfProducts(data.listOfProducts);
@@ -23,11 +23,13 @@ const ProductList = () => {
     getProductLists();
   }, []);
   
-  
+  const fetchProductLists = async (value) => {
+    const res = await fetch("http://localhost:4000/products/search?searchKey="+value)
+    }
   return (
     
     <div className="main-card">
-             <AiOutlineSearch style={{height:'3vh',width:'40px'}}/><input placeholder="Search for products" onChange={(e)=>getProductLists(e.target.value)} style={{width:"70%"}}/>
+             <AiOutlineSearch style={{height:'3vh',width:'40px'}}/><input onChange={(e)=>fetchProductLists(e.target.value)} placeholder="Search for products"  style={{width:"70%"}}/>
          
       
       {listOfProducts?.length>0 ? listOfProducts.map((item)=>{

@@ -36,6 +36,19 @@ router.get("/products", async (req, res) => {
 }
 });
 
+router.get("/products/search", async (req, res) => {
+  const regex = new RegExp("^"+req.query.searchKey)
+  const data = await Products.find({productName:regex})
+  if(data){
+    res.json({
+      listOfProducts:data,
+    })
+  } else{
+  res.json("No products found")
+   
+  }});
+
+
 
 // router.get("/admin-products", async (req, res) => {
 //   try{
