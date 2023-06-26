@@ -7,7 +7,7 @@ import { useState } from "react";
 import { setRole } from "../redux/reducerSlice/userSlice";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 
-
+import { useRouter } from "next/router";
 const SignupSchema = Yup.object().shape({
   FullName: Yup.string()
     .min(2, "Too Short!")
@@ -34,6 +34,7 @@ const SignupSchema = Yup.object().shape({
 });
 
 const Register = () => {
+  const router = useRouter();
   const [messageApi, contextHolder] = message.useMessage();
   const [file, setFile] = useState(null);
   const [open, setOpen] = useState(false);
@@ -88,6 +89,9 @@ const Register = () => {
     console.log(e.target.files);
     setFile(e.target.files[0]);
   };
+  const handleToLogin=()=>{
+router.push('/login')
+  }
   return (
     <div className="register-container">
       <div className="form-container">
@@ -160,7 +164,7 @@ const Register = () => {
               ) : null}
               <br />
               <input type="file" onChange={handleFileSave} />
-              <button type="submit" className="register-btn">
+              <button type="submit" className="register-btn" onClick={handleToLogin}>
                 Submit
               </button>
               <br />
