@@ -25,6 +25,10 @@ const ProductList = () => {
   
   const fetchProductLists = async (value) => {
     const res = await fetch("http://localhost:4000/products/search?searchKey="+value)
+    const data = await res.json();
+    if (data){
+      setlistOfProducts(data.listOfProducts);
+    }
     }
   return (
     

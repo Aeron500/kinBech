@@ -1,7 +1,9 @@
 import React from "react";
 import Link from "next/link";
 import { FaFacebook, FaInstagram, FaYoutube,FaCartPlus} from "react-icons/fa";
+import { useRouter } from "next/router";
 const UserNav = () => {
+  const router=useRouter();
   return (
     <>
       <nav className="user-main sticky">
@@ -24,9 +26,7 @@ const UserNav = () => {
            
           </li>
           <li>
-              <a href='#'>
-                Cart <FaCartPlus className="cart"/>
-              </a>
+            <h5 style={{color:'#e84a4a'}}>Cart</h5> <FaCartPlus className="cart" onClick={()=>router.push('/cart')}/>
               </li>
             <li>
               <a href="https://www.facebook.com/">
